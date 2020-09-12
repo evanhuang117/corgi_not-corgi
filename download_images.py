@@ -6,6 +6,7 @@ import os
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
+# python download_images.py --urls urls.txt --output images/corgi_images2/
 ap.add_argument("-u", "--urls", required=True,
 	help="path to file containing image URLs")
 ap.add_argument("-o", "--output", required=True,
