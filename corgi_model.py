@@ -12,7 +12,7 @@ import cv2
 
 
 def main():
-    data_dir = pathlib.Path("./corgi_images2")
+    data_dir = pathlib.Path("./dog_images")
     image_count = len(list(data_dir.glob('*.jpg')))
     print(image_count)
 
@@ -95,7 +95,7 @@ def main():
         layers.Dense(num_classes)
     ])
     """
-    epochs = 2
+    EPOCHS = 2
     model.compile(
         optimizer='adam',
         loss=tf.losses.SparseCategoricalCrossentropy(from_logits=True),
@@ -103,10 +103,10 @@ def main():
     hist = model.fit(
         train_ds,
         validation_data=val_ds,
-        epochs=epochs
+        epochs=EPOCHS
     )
 
-    filename = "corgi_not-corgi_epochs-" + str(epochs) + "_batch_size-" + str(batch_size)
+    filename = "corgi_not-corgi_epochs-" + str(EPOCHS) + "_batch_size-" + str(batch_size)
     model.save("./models/" + filename)
 
     probability_model = tf.keras.Sequential([model,
